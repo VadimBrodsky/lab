@@ -1,24 +1,8 @@
-# README
+# Boilerplate Rails App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Base Rails 5 app with the following customizations:
 
-Things you may want to cover:
+- Rspec Rails for testing
+- Capybara for intergration tests
+- Factory Girl for fixtures
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
