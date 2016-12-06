@@ -2,10 +2,13 @@ const EventEmitter  = require('events');
 const util = require('util');
 
 function Greetr() {
+  // Super constructor, to inherit the properties of the parent
+  EventEmitter.call(this);
   this.greeting = 'Hello World';
 }
 
 // Greetr will inherit all of the methods and properties of EventEmitter
+// by linking the prototype chain from Greetr to EventEmitter
 util.inherits(Greetr, EventEmitter);
 
 // Extend the prototype with additional methods
