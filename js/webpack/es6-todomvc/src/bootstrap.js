@@ -1,9 +1,8 @@
-/* global app, $on */
-(function(window) {
-  'use strict'
+'use strict'
 
-    console.log("hello worldz");
+require('./app')
+require('./helpers')
 
-  $on(window, 'load', app.onLoad)
-  $on(window, 'hashchange', app.onLoad)
-})(window)
+
+$on(window, 'load', app.onLoad)
+$on(window, 'hashchange', app.onLoad)
