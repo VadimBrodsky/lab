@@ -20,6 +20,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --host 10.0.9.95",
+    "build": "webpack -p",
     "build:dev": "webpack",
     "validate": "npm run lint",
     "start": "http-server --silent -c-1",
