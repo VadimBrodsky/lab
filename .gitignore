@@ -21,4 +21,5 @@
 .byebug_history
 
 /bower_components/*
+/node_modules/*
 
