@@ -26,7 +26,7 @@
     "build": "webpack -p --env.prod",
     "prebuild:dev": "rimraf dist",
     "build:dev": "webpack --env.dev",
-    "dev": "webpack-dev-server --env.dev",
+    "dev": "webpack-dev-server --env.dev --hot",
     "validate": "npm-run-all --parallel lint build",
     "start": "http-server --silent -c-1",
     "lint": "eslint ."
