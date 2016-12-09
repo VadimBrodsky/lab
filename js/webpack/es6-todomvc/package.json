@@ -25,7 +25,8 @@
     "karma-mocha": "1.1.1",
     "mocha": "3.0.1",
     "chai": "3.5.0",
-    "karma-chai": "0.1.0"
+    "karma-chai": "0.1.0",
+    "karma-webpack": "1.8.0"
   },
   "scripts": {
     "prebuild": "rimraf dist",
