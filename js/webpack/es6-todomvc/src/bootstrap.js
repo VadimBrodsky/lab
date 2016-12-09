@@ -1,7 +1,5 @@
-'use strict';
-
-require('./app');
-require('./helpers');
+import {onLoad} from './app';
+import {$on} from './helpers';
 
 // this is only relevant when using `hot` mode with webpack
 // special thanks to Eric Clemmons: https://github.com/ericclemmons/webpack-hot-server-example
@@ -12,7 +10,7 @@ if (module.hot) {
   });
   if (reloading) {
     console.log('🔁  HMR Reloading.');
-    app.onLoad();
+    onLoad();
   } else {
     console.info('✅ HMR Enabled.');
     bootstrap();
@@ -23,6 +21,6 @@ if (module.hot) {
 }
 
 function bootstrap() {
-  $on(window, 'load', app.onLoad);
-  $on(window, 'hashchange', app.onLoad);
+  $on(window, 'load', onLoad);
+  $on(window, 'hashchange', onLoad);
 }
