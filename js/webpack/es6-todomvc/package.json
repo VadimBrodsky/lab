@@ -19,7 +19,11 @@
     "webpack-validator": "2.2.11",
     "webpack-dev-server": "2.1.0-beta.12",
     "style-loader": "0.13.1",
-    "css-loader": "0.26.1"
+    "css-loader": "0.26.1",
+    "karma": "1.1.2",
+    "karma-chrome-launcher": "1.0.1",
+    "karma-mocha": "1.1.1",
+    "mocha": "3.0.1"
   },
   "scripts": {
     "prebuild": "rimraf dist",
@@ -27,7 +31,9 @@
     "prebuild:dev": "rimraf dist",
     "build:dev": "webpack --env.dev",
     "dev": "webpack-dev-server --env.dev --hot",
-    "validate": "npm-run-all --parallel lint build",
+    "test": "karma start",
+    "watch:test": "npm test -- --auto-watch --no-single-run",
+    "validate": "npm-run-all --parallel lint build test",
     "start": "http-server --silent -c-1",
     "lint": "eslint ."
   }
