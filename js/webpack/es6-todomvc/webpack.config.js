@@ -1,7 +1,7 @@
 const webpackValidator = require('webpack-validator');
 const resolve = require('path').resolve;
 
-module.exports = () => {
+module.exports = env => {
   return webpackValidator({
     context: resolve('src'),
     entry: './bootstrap.js',
@@ -10,6 +10,6 @@ module.exports = () => {
       filename: 'bundle.js',
       publicPath: '/dist/',
     },
-    devtool: 'eval',
+    devtool: env.prod ? 'source-map': 'eval',
   })
 };
