@@ -1,5 +1,8 @@
 'use strict'
 
+// Require the CSS as any other JS module
+require('todomvc-app-css/index.css');
+
 require('./view')
 require('./helpers')
 require('./controller')
