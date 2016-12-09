@@ -19,10 +19,12 @@
     }
   },
   "scripts": {
-    "dev": "webpack-dev-server --env.dev --host 10.0.9.95",
+    "prebuild": "rimraf dist",
     "build": "webpack -p --env.prod",
+    "prebuild:dev": "rimraf dist",
     "build:dev": "webpack --env.dev",
-    "validate": "npm run lint",
+    "dev": "webpack-dev-server --env.dev --host 10.0.9.95",
+    "validate": "npm-run-all --parallel lint build",
     "start": "http-server --silent -c-1",
     "lint": "eslint ."
   }
