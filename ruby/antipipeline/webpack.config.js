@@ -40,6 +40,23 @@ module.exports = {
         let output = `ASSET_FINGERPRINT = \"${stats.hash}\"`;
         fs.writeFileSync('config/initializers/fingerprint.rb', output, 'utf8');
       });
+    },
+    function() {
+      this.plugin('compile', () => {
+        let basepath =  `${__dirname}/public`;
+        let paths = ['/javascripts', '/stylesheets'];
+        paths.forEach(path => {
+          const asset_path = basepath + path;
+
+          fs.readdir(asset_path, (err, files) => {
+            if (files === undefined) { return; }
+            files.forEach(file => {
+              fs.unlinkSync(asset_path + '/' + file);
+            });
+          });
+
+        });
+      });
     }
   ]
 };
