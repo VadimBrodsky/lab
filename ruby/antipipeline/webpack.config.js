@@ -12,6 +12,7 @@ module.exports = {
   context: `${__dirname}/app/assets`,
   entry: {
     application: ['./javascripts/application.js', './stylesheets/application.css'],
+    // contact: ['./javascripts/contact.js', './stylesheets/contact.css'],
   },
   output: {
     path: `${__dirname}/public`,
