@@ -9,9 +9,9 @@ const css_output_template = prod ? 'stylesheets/[name]-[hash].css' : 'stylesheet
 const js_output_template = prod ? 'javascripts/[name]-[hash].js' : 'javascripts/[name].js';
 
 module.exports = {
-  context: `${__dirname}/app/assets/javascripts`,
+  context: `${__dirname}/app/assets`,
   entry: {
-    application: './application.js',
+    application: ['./javascripts/application.js', './stylesheets/application.css'],
   },
   output: {
     path: `${__dirname}/public`,
@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css!sass')
+        loader: ExtractTextPlugin.extract('css-loader!sass-loader')
       },
     ]
   },
