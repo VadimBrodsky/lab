@@ -15,7 +15,7 @@ module.exports = {
     // contact: ['./javascripts/contact.js', './stylesheets/contact.css'],
   },
   output: {
-    path: `${__dirname}/public/assets`,
+    path: `${__dirname}/public`,
     filename: js_output_template,
   },
   module: {
@@ -44,7 +44,7 @@ module.exports = {
     },
     function() {
       this.plugin('compile', () => {
-        let basepath =  `${__dirname}/public/assets`;
+        let basepath =  `${__dirname}/public`;
         let paths = ['/javascripts', '/stylesheets'];
         paths.forEach(path => {
           const asset_path = basepath + path;
