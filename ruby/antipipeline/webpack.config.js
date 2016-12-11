@@ -4,6 +4,10 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const fs = require('fs');
 
+const prod = process.argv.indexOf('-p') !== -1;
+const css_output_template = prod ? 'stylesheets/[name]-[hash].css' : 'stylesheets/[name].css';
+const js_output_template = prod ? 'javascripts/[name]-[hash].js' : 'javascripts/[name].js';
+
 module.exports = {
   context: `${__dirname}/app/assets/javascripts`,
   entry: {
@@ -11,7 +15,7 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/public`,
-    filename: 'javascripts/[name]-[hash].js',
+    filename: js_output_template,
   },
   module: {
     loaders: [
@@ -30,7 +34,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('stylesheets/[name]-[hash].css'),
+    new ExtractTextPlugin(css_output_template),
     function() {
       this.plugin('done', (stats) => {
         let output = `ASSET_FINGERPRINT = \"${stats.hash}\"`;
