@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     path: `${__dirname}/public`,
-    filename: 'javascripts/[name].js',
+    filename: 'javascripts/[name]-[hash].js',
   },
   module: {
     loaders: [
@@ -29,6 +29,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('stylesheets/[name].css'),
+    new ExtractTextPlugin('stylesheets/[name]-[hash].css'),
   ]
 };
