@@ -2,6 +2,7 @@
 
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const fs = require('fs');
 
 module.exports = {
   context: `${__dirname}/app/assets/javascripts`,
@@ -30,5 +31,11 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('stylesheets/[name]-[hash].css'),
+    function() {
+      this.plugin('done', (stats) => {
+        let output = `ASSET_FINGERPRINT = \"${stats.hash}\"`;
+        fs.writeFileSync('config/initializers/fingerprint.rb', output, 'utf8');
+      });
+    }
   ]
 };
