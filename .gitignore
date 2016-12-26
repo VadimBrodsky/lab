@@ -5,6 +5,10 @@ bower_components
 .bower-tmp
 
 
+### Typings ###
+typings
+
+
 ### Node ###
 # Logs
 logs
