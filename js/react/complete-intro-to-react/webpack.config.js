@@ -10,6 +10,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   },
+  devtool: 'eval-source-map',
   stats: {
     colors: true,
     reasons: true,
@@ -22,5 +23,8 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
-  }
-}
+  },
+  performance: {
+    hints: false
+  },
+};
