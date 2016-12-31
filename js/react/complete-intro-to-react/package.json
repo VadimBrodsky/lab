@@ -4,11 +4,7 @@
   "description": "A two day workshop on a complete intro to React",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "test": "mocha --require test/helpers/setup.js",
-    "lint": "eslint --ignore-path .gitignore --cache ./",
-    "cover": "nyc --reporter=lcov --reporter=text --reporter=html --require babel-register --extension .jsx npm test"
+    "test": "semistandard"
   },
   "author": "Brian Holt <btholt@gmail.com>",
   "license": "MIT",
@@ -43,6 +39,7 @@
     "mocha": "^2.4.5",
     "nyc": "^6.0.0",
     "react-addons-test-utils": "^0.14.7",
+    "semistandard": "^9.2.1",
     "sinon": "^1.17.3",
     "webpack": "^1.12.13"
   },
