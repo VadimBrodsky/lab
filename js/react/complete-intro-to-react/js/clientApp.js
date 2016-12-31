@@ -1,3 +1,4 @@
+/* global React ReactDOM */
 'use strict';
 
 var div = React.DOM.div;
@@ -9,7 +10,7 @@ var MyTitle = React.createClass({
   // all react components need to have a render method
   // it must return a component
   // needs to be a pure function
-  render: function() {
+  render: function () {
     return (
       div({style: {color: this.props.color}},
         h1(null, this.props.title)
