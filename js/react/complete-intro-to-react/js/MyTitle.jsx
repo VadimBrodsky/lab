@@ -4,7 +4,7 @@ var div = React.DOM.div;
 var h1 = React.DOM.h1;
 
 // createClass - creates a new type of element
-// composite component
+// composite component, always start with a capital
 var MyTitle = React.createClass({
   // all react components need to have a render method
   // it must return a component
