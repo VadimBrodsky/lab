@@ -1,3 +1,5 @@
+'use strict';
+
 var div = React.DOM.div;
 var h1 = React.DOM.h1;
 
@@ -13,13 +15,18 @@ var MyTitle = React.createClass({
   }
 });
 
+// not used with jsx
+// component factory, same as React.createElement(MyTitle) but less verbose
+// var ce = React.createElement;
+var MyTitleFact = React.createFactory(MyTitle);
+
 // createElement - creates an instance of the class
 var MyFirstComponent = (
   div(null,
     React.createElement(MyTitle, null),
     React.createElement(MyTitle, null),
     React.createElement(MyTitle, null),
-    React.createElement(MyTitle, null)
+    MyTitleFact(null)
   )
 );
 
