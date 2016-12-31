@@ -20,6 +20,12 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
+        loader: 'semistandard-loader',
+        exclude: /node_modules/,
+        enforce: 'pre'
+      },
+      {
+        test: /\.jsx?$/,
         loader: 'babel-loader'
       }
     ]
