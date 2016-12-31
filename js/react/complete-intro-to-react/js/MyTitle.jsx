@@ -9,11 +9,14 @@ var MyTitle = React.createClass({
   // all react components need to have a render method
   // it must return a component
   // needs to be a pure function
-  render: function () {
+  render () {
+    const style = {color: this.props.color};
     return (
-      div({style: {color: this.props.color}},
-        h1(null, this.props.title)
-      )
+      <div>
+        <h1 style={style}>
+          {this.props.title}
+        </h1>
+      </div>
     );
   }
 });
