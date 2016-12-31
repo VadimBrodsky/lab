@@ -41,7 +41,7 @@
     "react-addons-test-utils": "^0.14.7",
     "semistandard": "^9.2.1",
     "sinon": "^1.17.3",
-    "webpack": "^1.12.13"
+    "webpack": "^2.2.0-rc.3"
   },
   "directories": {
     "test": "test"
