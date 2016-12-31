@@ -1,6 +1,7 @@
-/* global React ReactDOM */
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 import MyTitle from './MyTitle';
+
 var div = React.DOM.div;
 
 // not used with jsx
