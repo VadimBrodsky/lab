@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 // arrow function with an implicit return
 var Landing = () => (
@@ -7,7 +8,7 @@ var Landing = () => (
     <div className='home-info'>
       <h1 className='title'>YouTube Searcher</h1>
       <input className='search' type='text' placeholder='Search' />
-      <button className='browse-all'> or Browse All</button>
+      <Link to='/search' className='browse-all'> or Browse All</Link>
     </div>
   </div>
 );
