@@ -1,11 +1,14 @@
 import React from 'react';
 import data from '../public/data';
+import ShowCard from './ShowCard';
 
 const Search = () => (
   <div className='container'>
-    {data.shows.map((show) => {
-      return <h3>{show.title}</h3>
-    })}
+    <div className='shows'>
+      {data.shows.map((show) => (
+        <ShowCard show={show} />
+      ))}
+    </div>
   </div>
 );
 
