@@ -7,8 +7,9 @@ class Search extends React.Component {
   constructor (props) {
     super(props);
 
+    // getInitialState () {}
     this.state = {
-      searchTerm: 'this is the default searchTerm'
+      searchTerm: ''
     };
 
     // with the ES6 class syntax need to bind the event handles manually
@@ -28,7 +29,11 @@ class Search extends React.Component {
           <input value={this.state.searchTerm} className='search-input' type='text' placeholder='Search' onChange={this.handleSearchTermEvent} />
         </header>
         <div className='shows'>
-          {data.shows.map((show) => (
+          {data.shows
+          .filter((show) => (
+            `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
+          ))
+          .map((show) => (
             <ShowCard {...show} key={show.imdbID} />
           ))}
         </div>
