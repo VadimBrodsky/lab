@@ -25,7 +25,7 @@ class Search extends React.Component {
     return (
       <div className='container'>
         <header className='header'>
-          <h1 className='brand'>Zetlix</h1>
+          <h1 className='brand'>Zetflix</h1>
           <input value={this.state.searchTerm} className='search-input' type='text' placeholder='Search' onChange={this.handleSearchTermEvent} />
         </header>
         <div className='shows'>
