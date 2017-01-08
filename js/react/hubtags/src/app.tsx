@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import './styles/main.css';
+import './styles/main.styl';
 
 interface HelloProps {
   name: string
