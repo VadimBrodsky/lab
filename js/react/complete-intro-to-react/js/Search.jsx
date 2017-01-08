@@ -1,5 +1,4 @@
 import React from 'react';
-import data from '../public/data';
 import ShowCard from './ShowCard';
 
 // const Serarch = React.createClass({});
@@ -29,7 +28,7 @@ class Search extends React.Component {
           <input value={this.state.searchTerm} className='search-input' type='text' placeholder='Search' onChange={this.handleSearchTermEvent} />
         </header>
         <div className='shows'>
-          {data.shows
+          {this.props.route.shows
           .filter((show) => (
             `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
           ))
@@ -41,5 +40,9 @@ class Search extends React.Component {
     );
   }
 }
+
+Search.propTypes = {
+  shows: React.PropTypes.arrayOf(React.PropTypes.object)
+};
 
 export default Search;
