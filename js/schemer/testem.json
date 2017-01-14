@@ -1,0 +1,12 @@
+{
+  "framework": "jasmine",
+  "src_files": [
+    "src/**/*.js",
+    "spec/**/*_spec.js"
+  ],
+  "launchers": {
+    "node": {
+      "command": "./node_modules/.bin/jasmine spec/*_spec.js"
+    }
+  }
+}

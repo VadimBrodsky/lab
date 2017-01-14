@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "jasmine",
+    "test:watch": "testem -l node",
+    "lint": "semistandard"
+  },
   "dependencies": {
+  },
+  "devDependencies": {
     "jasmine": "^2.5.3",
-    "testem": "^1.14.2"
+    "testem": "^1.14.2",
+    "semistandard": "^9.2.1"
   }
 }
