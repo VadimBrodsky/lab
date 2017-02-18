@@ -24,6 +24,11 @@ app.get('/hello/:who', (req, res) => {
   res.end(`Hello, ${req.params.who}.`);
 });
 
+app.get('/express', (req, res) => {
+  res.redirect('http://expressjs.com');
+});
+
+
 app.use((req, res) => {
   res.statusCode = 404;
   res.end('404');
