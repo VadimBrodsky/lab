@@ -1,10 +1,14 @@
 const express = require('express');
 const logger = require('morgan');
 const http = require('http');
+const path = require('path');
 
 const app = express();
 
 app.use(logger('short'));
+
+const publicPath = path.resolve(__dirname, 'public');
+app.use(express.static(publicPath));
 
 app.use((req, res, next) => {
   const minute = (new Date()).getMinutes();
