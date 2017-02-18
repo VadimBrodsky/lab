@@ -19,6 +19,11 @@ app.get('/weather', (req, res) => {
   res.end('The current weather is NICE.');
 });
 
+app.get('/hello/:who', (req, res) => {
+  // this is terribly insecure
+  res.end(`Hello, ${req.params.who}.`);
+});
+
 app.use((req, res) => {
   res.statusCode = 404;
   res.end('404');
