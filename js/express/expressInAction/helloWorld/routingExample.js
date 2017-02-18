@@ -7,6 +7,16 @@ const app = express();
 const publicPath = path.resolve(__dirname, 'public');
 app.use(express.static(publicPath));
 
+const EVIL_IP = '123.45.67.89';
+
+app.use((req, res, next) => {
+  if (req.ip === EVIL_IP) {
+    res.status(401).send('Not allowed!');
+  } else {
+    next();
+  }
+});
+
 app.get('/', (req, res) => {
   res.end('Welcome to my homepage!');
 });
