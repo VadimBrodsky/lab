@@ -28,6 +28,9 @@ app.get('/express', (req, res) => {
   res.redirect('http://expressjs.com');
 });
 
+app.get('/song', (req, res) => {
+  res.sendFile('/path/to/cool_song.mp3');
+});
 
 app.use((req, res) => {
   res.statusCode = 404;
