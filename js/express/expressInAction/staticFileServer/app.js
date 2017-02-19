@@ -1,14 +1,18 @@
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
 const fs = require('fs');
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log(`Request IP: ${req.ip}`);
-  console.log(`Request date: ${new Date()}`);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log(`Request IP: ${req.ip}`);
+//   console.log(`Request date: ${new Date()}`);
+//   next();
+// });
+
+const logger = morgan('short');
+app.use(logger);
 
 app.use((req, res, next) => {
   const filePath = path.join(__dirname, 'static', req.url);
