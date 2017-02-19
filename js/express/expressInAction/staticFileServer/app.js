@@ -14,16 +14,19 @@ const app = express();
 const logger = morgan('short');
 app.use(logger);
 
-app.use((req, res, next) => {
-  const filePath = path.join(__dirname, 'static', req.url);
-  fs.exists(filePath, (exists) => {
-    if (exists) {
-      res.sendFile(filePath);
-    } else {
-      next();
-    }
-  });
-});
+// app.use((req, res, next) => {
+//   const filePath = path.join(__dirname, 'static', req.url);
+//   fs.exists(filePath, (exists) => {
+//     if (exists) {
+//       res.sendFile(filePath);
+//     } else {
+//       next();
+//     }
+//   });
+// });
+
+const staticPath = path.join(__dirname, 'static');
+app.use(express.static(staticPath));
 
 app.use((req, res) => {
   res.status(404);
