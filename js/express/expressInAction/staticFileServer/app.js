@@ -4,8 +4,8 @@ const fs = require('fs');
 
 const app = express();
 
-app.use((req, res) => {
-  console.log(`Request IP: ${req.url}`);
+app.use((req, res, next) => {
+  console.log(`Request IP: ${req.ip}`);
   console.log(`Request date: ${new Date()}`);
   next();
 });
