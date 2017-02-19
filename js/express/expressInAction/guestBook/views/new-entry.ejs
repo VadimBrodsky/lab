@@ -1,0 +1,19 @@
+<% include header %>
+
+<h2>Write a new entry</h2>
+
+<form method="post" accept-charset="utf-8" role="form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" value="" class="form-control" placeholder="Entry title" required />
+  </div>
+  <div class="form-group">
+    <label for="content">Entry text</label>
+    <textarea name="content" id="content" class="form-control" placeholder="Love Express!" rows="3" requried></textarea>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Post entry" class="btn btn-primary" />
+  </div>
+</form>
+
+<% include footer %>
