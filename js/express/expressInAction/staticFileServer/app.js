@@ -16,7 +16,6 @@ app.use((req, res, next) => {
 const logger = morgan('short');
 app.use(logger);
 
-/*
 app.use((req, res, next) => {
   const filePath = path.join(__dirname, 'static', req.url);
   fs.exists(filePath, (exists) => {
@@ -32,16 +31,21 @@ app.use((req, res, next) => {
     }
   });
 });
-*/
 
 // express builtin static file middleware
-const staticPath = path.join(__dirname, 'static');
-app.use(express.static(staticPath));
+// const staticPath = path.join(__dirname, 'static');
+// app.use(express.static(staticPath));
 
 // middleware that logs all errors
 app.use((err, req, res, next) => {
   console.log(err);
   next(err);
+});
+
+// middleware that responds to the error
+app.use((err, req, res, next) => {
+  res.status(500);
+  res.send('Internal server error.');
 });
 
 app.use((req, res) => {
