@@ -10,4 +10,15 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  const filePath = path.join(__dirname, 'static', req.url);
+  fs.exists(filePath, (exists) => {
+    if (exists) {
+      res.sendFile(filePath);
+    } else {
+      next();
+    }
+  });
+});
+
 app.listen(3000, () => console.log('App started on port 300'));
