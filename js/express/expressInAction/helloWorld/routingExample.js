@@ -55,6 +55,12 @@ app.get(uuidRegex, (req, res) => {
   res.end(`Your uuid: ${uuid}`);
 });
 
+// Match using query strings
+app.get('/search', (req, res) => {
+  const query = req.query.q;
+  res.end(`You asked for ${query}`);
+});
+
 app.use((req, res) => {
   // res.statusCode = 404;
   // res.end('404');
