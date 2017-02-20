@@ -42,9 +42,31 @@ app.get('/song', (req, res) => {
   res.sendFile('/path/to/cool_song.mp3');
 });
 
+// Using Regex to match a pattern
+app.get(/^\/users\/(\d+)$/, (req, res) => {
+  const userId = parseInt(req.params[0], 10);
+  res.end(`Your are user ${userId}`);
+});
+
+// Match UUID via Regex
+const uuidRegex = /^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{3}-[89ab[0-9a-f]{3}-[0-9a-f]{12})$/i;
+app.get(uuidRegex, (req, res) => {
+  const uuid = req.params[0];
+  res.end(`Your uuid: ${uuid}`);
+});
+
+// Match using query strings
+app.get('/search', (req, res) => {
+  const query = req.query.q;
+  res.end(`You asked for ${query}`);
+});
+
 app.use((req, res) => {
-  res.statusCode = 404;
-  res.end('404');
+  // res.statusCode = 404;
+  // res.end('404');
+
+  // as one line
+  res.status(404).send('Page not found!');
 });
 
 http.createServer(app).listen(3000);
