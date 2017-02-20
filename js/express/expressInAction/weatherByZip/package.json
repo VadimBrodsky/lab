@@ -11,6 +11,7 @@
     "ejs": "^2.5.6",
     "express": "^4.14.1",
     "forecastio": "^1.0.2",
+    "morgan": "^1.8.1",
     "zippity-do-dah": "^0.0.2"
   },
   "devDependencies": {
