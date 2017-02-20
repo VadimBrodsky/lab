@@ -40,6 +40,15 @@ app.use((req, res, next) => {
 const specialPath = path.resolve(__dirname, 'static');
 app.use('/special', express.static(specialPath));
 
+// send a specific static asset at a specific URL
+app.get('/users/:userid/profile_photo', (req, res) => {
+  function getProfilePhotoPath(userid) {
+    return path.resolve(__dirname, 'static/bansky.txt');
+  }
+
+  res.sendFile(getProfilePhotoPath(req.params.userid));
+});
+
 // middleware that logs all errors
 app.use((err, req, res, next) => {
   console.log(err);
