@@ -36,6 +36,10 @@ app.use((req, res, next) => {
 // const staticPath = path.join(__dirname, 'static');
 // app.use(express.static(staticPath));
 
+// mount the asset path in a sub url
+const specialPath = path.resolve(__dirname, 'static');
+app.use('/special', express.static(specialPath));
+
 // middleware that logs all errors
 app.use((err, req, res, next) => {
   console.log(err);
