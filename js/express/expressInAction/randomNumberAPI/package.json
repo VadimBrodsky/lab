@@ -1,0 +1,17 @@
+{
+  "name": "randomNumberAPI",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon app",
+    "lint": "semistandard ./*.js"
+  },
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "semistandard": "^9.2.1"
+  }
+}
