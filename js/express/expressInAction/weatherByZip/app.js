@@ -7,7 +7,7 @@ const DarkSky = require('forecastio');
 const app = express();
 
 const APIKey = process.env.DARKSKY_API_KEY;
-const weather = new DarkSky(process.env.DARKSKY_API_KEY);
+const weather = new DarkSky(APIKey);
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 
@@ -51,5 +51,5 @@ app.use((req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log(`app started using API KEY: ${process.env.DARKSKY_API_KEY}`);
+  console.log(`app started using API KEY: ${APIKey}`);
 });
