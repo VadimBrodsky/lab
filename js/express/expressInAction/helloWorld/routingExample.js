@@ -43,8 +43,11 @@ app.get('/song', (req, res) => {
 });
 
 app.use((req, res) => {
-  res.statusCode = 404;
-  res.end('404');
+  // res.statusCode = 404;
+  // res.end('404');
+
+  // as one line
+  res.status(404).send('Page not found!');
 });
 
 http.createServer(app).listen(3000);
