@@ -1,10 +1,20 @@
 const http = require('http');
+const https = require('https');
+const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 
 const app = express();
+
+// Generate SSL certificate
+// openssl genrsa -out privatekey.pem 1024
+// openssl req -new -key privatekeye.pem -out request.pem
+const httpsOptions = {
+  key: fs.readFileSync('./cert/privatekey.pem'),
+  cert: fs.readFileSync('./cert/request.pem')
+};
 
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -42,7 +52,12 @@ app.use((req, res) => {
   res.status(404).render('404');
 });
 
+// Serve the HTTP app
 http.createServer(app).listen(3000, () => {
   console.log('Guestbook app has started on port 3000.');
 });
+
+
+// Serve the HTTPS app
+// https.createServer(httpsOptions, app).listen(443);
 
