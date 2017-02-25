@@ -10,10 +10,13 @@ const userSchema = mongoose.Schema({
   bio: String
 });
 
+// getter for user name
 userSchema.methods.name = () => this.displayName || this.username;
 
+// need this empty function for bcrypt
 const noop = () => {};
 
+// hash the password before saving it
 userSchema.pre('save', function (done) {
   const user = this;
   if (!user.isModified('password')) { return done(); }
@@ -29,5 +32,9 @@ userSchema.pre('save', function (done) {
   });
 });
 
-
-
+// compare hashed password with input
+userSchema.methods.checkPassword = function (guess, done) {
+  bcrypt.compare(guess, this.password, (err, isMatch) => {
+    done(err, isMatch);
+  });
+};
