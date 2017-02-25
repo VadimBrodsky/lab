@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
+
 const SALT_FACTOR = 10;
 
 const userSchema = mongoose.Schema({
@@ -9,9 +10,6 @@ const userSchema = mongoose.Schema({
   displayName: String,
   bio: String
 });
-
-// getter for user name
-userSchema.methods.name = () => this.displayName || this.username;
 
 // need this empty function for bcrypt
 const noop = () => {};
@@ -38,3 +36,10 @@ userSchema.methods.checkPassword = function (guess, done) {
     done(err, isMatch);
   });
 };
+
+// getter for user name
+userSchema.methods.name = () => this.displayName || this.username;
+
+// Attach schema to a model and export it
+const User = mongoose.model('User', userSchema);
+module.exports = User;
