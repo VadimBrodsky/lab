@@ -12,3 +12,22 @@ const userSchema = mongoose.Schema({
 
 userSchema.methods.name = () => this.displayName || this.username;
 
+const noop = () => {};
+
+userSchema.pre('save', function (done) {
+  const user = this;
+  if (!user.isModified('password')) { return done(); }
+
+  bcrypt.genSalt(SALT_FACTOR, (err, salt) => {
+    if (err) { return done(err); }
+
+    bcrypt.hash(user.password, salt, noop, (err, hashedPassword) => {
+      if (err) { return done(err); }
+      user.password = hashedPassword;
+      done();
+    });
+  });
+});
+
+
+
