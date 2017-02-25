@@ -10,3 +10,5 @@ const userSchema = mongoose.Schema({
   bio: String
 });
 
+userSchema.methods.name = () => this.displayName || this.username;
+
