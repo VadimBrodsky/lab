@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon app",
-    "lint": "semistandard ./*.js"
+    "lint": "semistandard ./**/*.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
