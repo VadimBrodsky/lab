@@ -3,13 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "node": true,
-      "jasmine": true
-    }
-  },
   "scripts": {
     "test": "jasmine",
     "lint": "semistandard ./**/*.js"
