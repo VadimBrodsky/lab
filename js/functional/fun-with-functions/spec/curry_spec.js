@@ -1,6 +1,6 @@
 /* eslint-env jasmine */
 
-const curry = require('../lib/curry').modern;
+const curry = require('../lib/curry');
 const add = require('../lib/add');
 const mul = require('../lib/mul');
 

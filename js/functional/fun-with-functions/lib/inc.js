@@ -6,7 +6,7 @@
 const add = require('./add');
 const addf = require('./addf');
 const liftf = require('./liftf');
-const curry = require('./curry').binary;
+const curry = require('./curry');
 
 const inc = {
   way1: curry(add, 1),

@@ -1,13 +1,14 @@
 // Write a function `curry`  should take a binary function and an argument, and return a function that can take a second argument.
 
-const binary = (binaryFunction, argA) => {
+// binary curry function
+const curry = (binaryFunction, argA) => {
   return (argB) => {
     return binaryFunction(argA, argB);
   };
 };
 
-// ES5 based curry
-const old = (func) => {
+// ES5 based curry for any number of arguments
+curry.old = (func) => {
   const slice = Array.prototype.slice;
   const args = slice.call(arguments, 1);
 
@@ -19,11 +20,11 @@ const old = (func) => {
   };
 };
 
-// ES2015 based curry
-const modern = (func, ...first) => {
+// ES2015 curry function for any number of arguments
+curry.any = (func, ...first) => {
   return (...second) => {
     return func(...first, ...second);
   };
 };
 
-module.exports = { binary, old, modern };
+module.exports = curry;
