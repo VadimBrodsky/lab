@@ -1,0 +1,14 @@
+{
+  "name": "fun-with-functions",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jasmine",
+    "lint": "semistandard ./**/*.js"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.3",
+    "semistandard": "^9.2.1"
+  }
+}
