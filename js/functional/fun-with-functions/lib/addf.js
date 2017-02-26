@@ -1,11 +1,7 @@
-/*
-    Write a function `addf` that adds from two invocations.
-*/
+// Write a function `addf` that adds from two invocations.
 
-function addf(numberA) {
-    return function(numberB) {
-        return numberA + numberB;
-    };
-}
+const addf = (argA) => {
+  return (argB) => argA + argB;
+};
 
 module.exports = addf;
