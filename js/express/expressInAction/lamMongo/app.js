@@ -10,7 +10,7 @@ const routes = require('./routes');
 
 const app = express();
 
-mongooser.connect('mongodb://localhost:2717/test');
+mongooser.connect('mongodb://localhost:27017/test');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
