@@ -1,6 +1,6 @@
 /* eslint-env jasmine */
 
-const filter = require('../lib/filter').recursion;
+const filter = require('../lib/filter');
 const fromTo = require('../lib/fromTo');
 
 describe('filter function', () => {

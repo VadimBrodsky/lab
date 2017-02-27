@@ -3,7 +3,10 @@
 const filter = (generator, predicate) => {
   return () => {
     let next = generator();
-    while (next !== undefined && !predicate(next)) {
+    while (next !== undefined) {
+      if (predicate(next)) {
+        return next;
+      }
       next = generator();
     }
     return undefined;
