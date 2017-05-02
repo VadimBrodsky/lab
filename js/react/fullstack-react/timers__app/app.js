@@ -69,7 +69,7 @@ class EditableTimerList extends React.Component {
         title={timer.title} 
         project={timer.project} 
         elasped={timer.elapsed} 
-        runningSince={timer.runnigSince} 
+        runningSince={timer.runningSince} 
         onFormSubmit={this.props.onFormSubmit}
         onTrashClick={this.props.onTrashClick}
       />
@@ -183,9 +183,14 @@ class ToggleableTimerForm extends React.Component {
 }
 
 class Timer extends React.Component {
+  componentDidMount() { this.forceupdateInterval = setInterval(() => this.forceUpdate(), 50); };
+  componentWillUnmount() { clearInterval(this.forceupdateInterval); };
   handleTrashClick = () => { this.props.onTrashClick(this.props.id); };
   render() {
-    const elapsedString = helpers.renderElapsedString(this.props.elapsed);
+    const elapsedString = helpers.renderElapsedString(
+      this.props.elapsed,
+      this.props.runningSince
+    );
     return (
       <div className='ui centered card'>
         <div className='content'>
