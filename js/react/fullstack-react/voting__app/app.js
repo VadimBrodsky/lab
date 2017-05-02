@@ -128,3 +128,13 @@ class Product extends React.Component {
             <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
           </div>
         </div>
+      </div>
+    );
+  };
+};
+
+// add in what and where
+ReactDOM.render(
+  <ProductList />,
+  document.getElementById('content')
+);
